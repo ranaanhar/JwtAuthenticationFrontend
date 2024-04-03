@@ -1,0 +1,80 @@
+<section class="vh-100 bg-primary" 
+  
+  >
+  <!-- style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');" -->
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-center mb-5">Create an Account</h2>
+
+              <form [formGroup]="formarray" id="registerForm">
+
+                <div class="form-outline mb-4" >
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="username" placeholder="Username"/>
+                  <!-- <label class="form-label" for="form3Example1cg"></label> -->
+                    <div *ngIf="formarray.controls['username'].invalid&&(formarray.controls['username'].dirty||formarray.controls['username'].touched)">
+                        <div *ngIf="formarray.controls['username'].errors" class="d-flex invalid-feedback">username required.</div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4" >
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email" placeholder="Email"/>
+                  <!-- <label class="form-label" for="form3Example3cg">Email</label> -->
+                    <div *ngIf="formarray.controls['email'].invalid&&(formarray.controls['email'].dirty||formarray.controls['email'].touched)">
+                        <div *ngIf="formarray.controls['email'].errors" class="d-flex invalid-feedback">email required.</div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4" >
+                    <input type="text" id="form3Example3cp" class="form-control form-control-lg" formControlName="phoneNumber" placeholder="phoneNumber"/>
+                    <!-- <label class="form-label" for="form3Example3cg">Email</label> -->
+                      <div *ngIf="formarray.controls['phoneNumber'].invalid&&(formarray.controls['phoneNumber'].dirty||formarray.controls['phoneNumber'].touched)">
+                          <div *ngIf="formarray.controls['phoneNumber'].errors" class="d-flex invalid-feedback">phoneNumber required.</div>
+                      </div>
+                  </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password" placeholder="Password"/>
+                  <!-- <label class="form-label" for="form3Example4cg">Password</label> -->
+                    <div *ngIf="formarray.controls['password'].invalid&&(formarray.controls['password'].dirty||formarray.controls['password'].touched)">
+                        <div *ngIf="formarray.controls['password'].errors" class="d-flex invalid-feedback">password required.</div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4" >
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" formControlName="confirmPassword" placeholder="Repeat Password"/>
+                  <!-- <label class="form-label" for="form3Example4cdg">repeat your password</label> -->
+                  <div *ngIf="formarray.controls['confirmPassword'].invalid&&(formarray.controls['confirmPassword'].dirty||formarray.controls['confirmPassword'].touched)">
+                    <div *ngIf="formarray.controls['confirmPassword'].errors" class="d-flex invalid-feedback">password does not match.</div>
+                  </div>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3cg">
+                    I agree all statements in <a href="" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+                
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-primary btn-block btn-lg " (click)="onSignupClick()">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? 
+                    <a routerLink="/login" routerLinkActive="active"
+                    ><u>Login here</u></a></p>
+
+                   
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
