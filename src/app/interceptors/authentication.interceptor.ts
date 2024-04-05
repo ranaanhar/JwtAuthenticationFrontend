@@ -1,14 +1,16 @@
 import { HttpErrorResponse, HttpInterceptorFn, HttpResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { AuthenticationService } from './authentication.service';
 import { EMPTY, catchError, empty } from 'rxjs';
 import { Router } from '@angular/router';
+import { NetworkService } from '../shared/network.service';
+import { StorageService } from '../shared/storage.service';
 
 export const authenticationInterceptor: HttpInterceptorFn = (req, next) => {
-  const httpService=inject(AuthenticationService);
+  const httpService=inject(NetworkService);
+  const storageService=inject(StorageService);
   const router=inject(Router);
 
-  if (httpService.isLogin()) {
+  if (storageService.isLogin()) {
     var token=localStorage.getItem(httpService.token);
     var clone=req.clone({headers:req.headers.set(`Authorization`,`Bearer ${token}`)});
     req=clone;

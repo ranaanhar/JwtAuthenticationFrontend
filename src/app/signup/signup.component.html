@@ -13,49 +13,60 @@
               <form [formGroup]="formarray" id="registerForm">
 
                 <div class="form-outline mb-4" >
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="username" placeholder="Username"/>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="username" 
+                  placeholder="Username" [ngClass]="{'is-invalid':username?.errors&&isSignup}"/>
                   <!-- <label class="form-label" for="form3Example1cg"></label> -->
-                    <div *ngIf="formarray.controls['username'].invalid&&(formarray.controls['username'].dirty||formarray.controls['username'].touched)">
-                        <div *ngIf="formarray.controls['username'].errors" class="d-flex invalid-feedback">username required.</div>
+                    <div *ngIf="username?.invalid&&(username?.dirty||isSignup)">
+                        <div *ngIf="username?.hasError('required')" class="d-flex invalid-feedback">Enter Username.</div>
                     </div>
                 </div>
 
                 <div class="form-outline mb-4" >
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email" placeholder="Email"/>
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email" 
+                  placeholder="Email" [ngClass]="{'is-invalid':email?.errors&&isSignup}"/>
                   <!-- <label class="form-label" for="form3Example3cg">Email</label> -->
-                    <div *ngIf="formarray.controls['email'].invalid&&(formarray.controls['email'].dirty||formarray.controls['email'].touched)">
-                        <div *ngIf="formarray.controls['email'].errors" class="d-flex invalid-feedback">email required.</div>
+                    <div *ngIf="email?.invalid&&(email?.dirty||isSignup)">
+                        <div *ngIf="email?.hasError('required')" class="d-flex invalid-feedback">Enter Email.</div>
+                        <div *ngIf="email?.hasError('email')" class="d-flex invalid-feedback">email is incorrect.</div>
                     </div>
                 </div>
 
                 <div class="form-outline mb-4" >
-                    <input type="text" id="form3Example3cp" class="form-control form-control-lg" formControlName="phoneNumber" placeholder="phoneNumber"/>
+                    <input type="text" id="form3Example3cp" class="form-control form-control-lg" formControlName="phoneNumber" 
+                    placeholder="Phone 914xxxxxxx" [ngClass]="{'is-invalid':phoneNumber?.errors&&isSignup}"/>
                     <!-- <label class="form-label" for="form3Example3cg">Email</label> -->
-                      <div *ngIf="formarray.controls['phoneNumber'].invalid&&(formarray.controls['phoneNumber'].dirty||formarray.controls['phoneNumber'].touched)">
-                          <div *ngIf="formarray.controls['phoneNumber'].errors" class="d-flex invalid-feedback">phoneNumber required.</div>
+                      <div *ngIf="phoneNumber?.invalid&&(phoneNumber?.dirty||isSignup)">
+                          <div *ngIf="phoneNumber?.hasError('required')" class="d-flex invalid-feedback">Enter PhoneNumber.</div>
+                          <div *ngIf="phoneNumber?.hasError('pattern')" class="d-flex invalid-feedback">invalid phoneNumber </div>
                       </div>
                   </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password" placeholder="Password"/>
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" formControlName="password" 
+                  placeholder="Password" [ngClass]="{'is-invalid':password?.errors&&isSignup}"/>
                   <!-- <label class="form-label" for="form3Example4cg">Password</label> -->
-                    <div *ngIf="formarray.controls['password'].invalid&&(formarray.controls['password'].dirty||formarray.controls['password'].touched)">
-                        <div *ngIf="formarray.controls['password'].errors" class="d-flex invalid-feedback">password required.</div>
+                    <div *ngIf="password?.invalid&&(password?.dirty||isSignup)">
+                        <div *ngIf="password?.hasError('required')" class="d-flex invalid-feedback">Enter Password.</div>
+                        <div *ngIf="password?.hasError('minlength')" class="d-flex invalid-feedback">password must be at least 8 characters.</div>
+                        <div *ngIf="password?.hasError('maxlength')" class="d-flex invalid-feedback">maximum length of password is 25</div>
                     </div>
                 </div>
 
                 <div class="form-outline mb-4" >
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" formControlName="confirmPassword" placeholder="Repeat Password"/>
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" formControlName="confirmPassword" 
+                  placeholder="Repeat Password" [ngClass]="{'is-invalid':confirmPassword?.errors&&isSignup}"/>
                   <!-- <label class="form-label" for="form3Example4cdg">repeat your password</label> -->
-                  <div *ngIf="formarray.controls['confirmPassword'].invalid&&(formarray.controls['confirmPassword'].dirty||formarray.controls['confirmPassword'].touched)">
-                    <div *ngIf="formarray.controls['confirmPassword'].errors" class="d-flex invalid-feedback">password does not match.</div>
+                  <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || isSignup)">
+                    <div *ngIf="confirmPassword?.hasError('required')" class="d-flex invalid-feedback">please Enter Your password Again.</div>
+                    <div *ngIf="confirmPassword?.hasError('missmatch')" class="d-flex invalid-feedback">password does not match.</div>
+                    
                   </div>
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
                   <label class="form-check-label" for="form2Example3cg">
-                    I agree all statements in <a href="" class="text-body"><u>Terms of service</u></a>
+                    I agree all statements in <a href="" class="text-body"><u>Terms of service {{formarray.valid}}</u></a>
                   </label>
                 </div>
                 
