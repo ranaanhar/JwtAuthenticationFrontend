@@ -2,7 +2,6 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export function formValidation(firstControlName:string,secondControlName:string):ValidatorFn{
     return(formGroup:AbstractControl):ValidationErrors|null=>{
-      console.log(`in form validation.`);
       var pass=formGroup.get(firstControlName);
       var confirm=formGroup.get(secondControlName);
   

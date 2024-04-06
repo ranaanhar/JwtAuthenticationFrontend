@@ -1,2 +1,195 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+//$fa-font-path: "../node_modules/font-awesome/fonts";
+//@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+body{ 
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+  .titillium-web-extralight a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .titillium-web-light{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .titillium-web-regular a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .titillium-web-semibold a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .titillium-web-bold a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .titillium-web-black a{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .titillium-web-extralight-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .titillium-web-light-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .titillium-web-regular-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .titillium-web-semibold-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .titillium-web-bold-italic {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+
+
+
+
+  .barlow-thin {
+    font-family: "Barlow", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .barlow-extralight {
+    font-family: "Barlow", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .barlow-light {
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .barlow-regular {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .barlow-medium {
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .barlow-semibold {
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .barlow-bold {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .barlow-extrabold {
+    font-family: "Barlow", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .barlow-black {
+    font-family: "Barlow", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .barlow-thin-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .barlow-extralight-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .barlow-light-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .barlow-regular-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .barlow-medium-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .barlow-semibold-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .barlow-bold-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .barlow-extrabold-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .barlow-black-italic {
+    font-family: "Barlow", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
