@@ -32,11 +32,21 @@
             <!-- Right elements -->
             <div class="d-flex align-items-center justify-content-start">
                 <!-- Icon -->
+                 <div *ngIf="!checkLogin();else other">
                 <a class="text-white me-2 titillium-web-extralight " routerLink="/login" routerLinkActive="active" >
                     Login
                     <!-- <i class="fas fa-shopping-cart text-white"></i> -->
                 </a>
-
+              </div>
+              <ng-template #other>
+                <a class="text-white me-2 titillium-web-extralight " routerLink="/profile" routerLinkActive="active" >
+                  {{getUsername()}}
+                  <!-- <i class="fas fa-shopping-cart text-white"></i> -->
+              </a>
+              <a class="text-white me-2 titillium-web-extralight "  routerLink="/login" (click)="LogOut()">
+                Logout
+            </a>
+              </ng-template>
                 <!-- Notifications -->
                 <!-- <div class="dropdown" >
                     <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">

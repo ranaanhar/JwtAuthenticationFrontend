@@ -11,15 +11,21 @@ export class StorageService {
   expiration="Expiration_Id";
   token="Token_Id";
   refreshToken="RefreshToken_Id";
+  userName="User_Id";
 
 
-  public saveLoginStateToStorage(response:ResponseLogin){
-    if (response) {
-      // console.log('save token.');
-      localStorage.setItem(this.expiration,response.expiration!);
-      localStorage.setItem(this.token,response.token!);
-      localStorage.setItem(this.refreshToken,response.refreshToken!);
+  public saveLoginStateToStorage(response:ResponseLogin,userName?:string){
+    try{
+      if (response&&userName) {
+        localStorage.setItem(this.expiration,response.expiration!);
+        localStorage.setItem(this.token,response.token!);
+        localStorage.setItem(this.refreshToken,response.refreshToken!);
+        localStorage.setItem(this.userName,userName!);
+      }
+    }catch(error) {
+      console.log(error);
     }
+
   }
 
   public logout(){
@@ -27,32 +33,44 @@ export class StorageService {
       localStorage.removeItem(this.expiration);
       localStorage.removeItem(this.token);
       localStorage.removeItem(this.refreshToken);
+      localStorage.removeItem(this.userName);
     } catch (error) {
       console.log(error);
     }
   }
 
   public isLogin():boolean{
-    let exp=localStorage.getItem(this.expiration);
-    let token=localStorage.getItem(this.token);
-    if (exp && token) {
-      let now=new Date().valueOf();
-      let expiration=Number(exp);
-      return expiration>now;
+    try {
+      let exp=localStorage.getItem(this.expiration);
+      let token=localStorage.getItem(this.token);
+      if (exp && token) {
+        let now=new Date().valueOf();
+        let expiration=Number(exp);
+        return expiration>now;
+      }
+    } catch{
+
     }
+
     return false;
   }
 
   public getAccessToken(){
-    // console.log("return access token from localStorage.");
     return localStorage.getItem(this.token);
   }
 
   public getRefreshToken(){
-    // console.log("return refresh token from localStorage.");
     return localStorage.getItem(this.refreshToken);
   }
 
+  public getUsername(){
+    try {
+        return localStorage.getItem(this.userName);
+    } catch {
+
+    }
+    return null;
+  }
 
   public isLogout():boolean{
     return !this.isLogin();

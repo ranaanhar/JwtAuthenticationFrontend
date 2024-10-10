@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RequestLogin } from '../model/request-login';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ResponseLogin } from '../model/response-login';
 import { NetworkService } from '../shared/network.service';
 import { StorageService } from '../shared/storage.service';
-import { response } from 'express';
-import { RequestRefreshToken } from '../model/request-refresh-token';
-import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +17,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private networkService:NetworkService,private storageService:StorageService,private formBuilder:FormBuilder){}
+  constructor(private networkService:NetworkService,private storageService:StorageService,private formBuilder:FormBuilder,private router:Router){
+    if (storageService.isLogin()) {
+      this.router.navigateByUrl('/home');
+    }
+  }
 
   isSubmit=false;
 
@@ -41,8 +43,9 @@ formarray=new FormGroup({
 
     this.networkService.postRequestToLogin(request).subscribe(result=>{
       this.response=result;
-      this.storageService.saveLoginStateToStorage(result);
+      this.storageService.saveLoginStateToStorage(result,request.usernameoremail);
       this.changeState();
+      this.router.navigateByUrl('/home');
     });
   }
 
@@ -63,12 +66,13 @@ formarray=new FormGroup({
 
   changeState(){
     //change users login/logout state
+
   }
 
   onFacebookClick() {
-      this.networkService.testAuthorizedMethod().subscribe(rr=>{
-        console.log('result: ',rr);
-      });
+      // this.networkService.testAuthorizedMethod().subscribe(rr=>{
+      //   console.log('result: ',rr);
+      // });
   }
 
 
@@ -80,8 +84,8 @@ formarray=new FormGroup({
     // }
     // let request:RequestRefreshToken={accessToken:_accessToken!,refreshToken:_refreshToken!}
     // this.networkService.postRequestToRefreshToken(request).subscribe(result=>{console.log(result);});
-    this.networkService.testUnAuthorizedMethod().subscribe(result=>{
-      console.log('we cannot see result');
-    });
+    // this.networkService.testUnAuthorizedMethod().subscribe(result=>{
+    //   console.log('we cannot see result');
+    // });
   }
 }

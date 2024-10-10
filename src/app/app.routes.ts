@@ -3,8 +3,8 @@ import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { title } from 'process';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path:'login',component:LoginComponent,title:'Login'},
@@ -14,5 +14,6 @@ export const routes: Routes = [
     {path:'error',redirectTo:'error/',pathMatch:'full'},
     {path:'error/:id',component:ErrorPageComponent},
     {path:'privacy',component:PrivacyComponent},
+    {path:'profile',component:ProfileComponent,title:'Profile'},
     {path:'**',redirectTo:'error/',pathMatch:'full'}
 ];

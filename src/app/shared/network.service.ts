@@ -47,19 +47,19 @@ export class NetworkService {
     return this.http.post<ResponseSignup>(registerUrl,request);
   }
 
-  //TODO remove this methods
-public testAuthorizedMethod(){
-  const auth_url=this.url+this.refreshTokenUrl;
-  return this.http.get(auth_url);
-}
 
-  public testCrud(request:string){
-    const testUrl=this.url+this.userManagerUrl;
-    return this.http.post<string>(testUrl,request);
-  }
+// public testAuthorizedMethod(){
+//   const auth_url=this.url+this.refreshTokenUrl;
+//   return this.http.get(auth_url);
+// }
 
-  public testUnAuthorizedMethod(){
-    const login=this.url+this.loginUrl;
-    return this.http.get(login);
-  }
+//   public testCrud(request:string){
+//     const testUrl=this.url+this.userManagerUrl;
+//     return this.http.post<string>(testUrl,request);
+//   }
+
+//   public testUnAuthorizedMethod(){
+//     const login=this.url+this.loginUrl;
+//     return this.http.get(login);
+//   }
 }
